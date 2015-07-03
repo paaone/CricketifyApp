@@ -1,0 +1,14 @@
+﻿.scoringTable td{
+    font-size:30px;
+    font:bold;
+    border:2px solid black;    
+    text-align:center;
+    cursor:pointer;
+    width:110px;
+}
+
+.battingHeaderTableRow th{    
+    font-size: 16px;
+    background-color: lightgray;
+    width:80px;
+}

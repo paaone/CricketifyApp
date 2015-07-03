@@ -5,11 +5,54 @@
 
 <html>
     <head>
-        <script src="~/Scripts/angular.min.js"></script>
+        <script src="~/Scripts/angular.min.js"></script>        
+        <link rel="stylesheet" type="text/css" href="~/Content/CricketifyCustom.css" />
+        <script src="~/Scripts/CricketifyApp/Scorecard.js"></script>
     </head>
-    <body ng-app>
-        <h2>Welcome {{1+1}} Cricketify App</h2>        
+    <body ng-app="myApp">
+        <h2>Welcome {{1+1}} Cricketify App</h2>
+        <h1>Scoring</h1>
+        <label style="background-color:darkorange;color:white;">Projected Score: 200 Patnership: 50</label>
+        <table class="battingHeaderTableRow">
+            <thead>
+                <tr>
+                    <th style="width:200px;">Batsman</th>
+                    <th>R</th>
+                    <th>B</th>
+                    <th>4s</th>
+                    <th>6s</th>
+                    <th>SR</th>
+                </tr>
+            </thead>
+        </table>
+        <div ng-controller="ScorecardController">
+            <h4 style="display:inline-block;">{{batsmanOne}}</h4>
+            <div style="display:inline-block;font:bold;padding-left:172px;">{{runs}}</div>
+            <div style="display:inline-block;font:bold;padding-left:70px;">{{totalBls}}</div>
+            <div style="display:inline-block;font:bold;padding-left:70px;">{{fours}}</div>
+            <div style="display:inline-block;font:bold;padding-left:70px;">{{sixers}}</div>
+            <div style="display:inline-block;font:bold;padding-left:70px;">{{strikeRate()}}</div>
+            <br />
+            <h4 style="display:inline-block;">{{batsmanTwo}}</h4>
+            <div style="display:inline-block;font:bold;padding-left:147px;">{{runs}}</div>
+            <div style="display:inline-block;font:bold;padding-left:70px;">{{totalBls}}</div>
+            <div style="display:inline-block;font:bold;padding-left:70px;">{{fours}}</div>
+            <div style="display:inline-block;font:bold;padding-left:70px;">{{sixers}}</div>
+            <div style="display:inline-block;font:bold;padding-left:70px;">{{strikeRate()}}</div>
+            <br /><br /><br /><br />
+            <table class="scoringTable">
+                <tr ng-repeat="item in ScoresTable">
+                    <td ng-click="handleScorecardClick(item.zero)">{{ item.zero }}</td>
+                    <td ng-click="handleScorecardClick(item.one)">{{ item.one }}</td>
+                    <td ng-click="handleScorecardClick(item.two)">{{ item.two }}</td>
+                    <td ng-click="handleScorecardClick(item.three)">{{ item.three }}</td>
+                    <td ng-click="handleScorecardClick(item.four)">{{ item.four }}</td>
+                    <td ng-click="handleScorecardClick(item.five)">{{ item.five }}</td>
+                    <td ng-click="handleScorecardClick(item.six)">{{ item.six }}</td>
+                    <td ng-click="handleScorecardClick(item.wicket)">{{ item.wicket }}</td>
+                    <td ng-click="handleScorecardClick(item.extra)">{{ item.extra }}</td>
+                </tr>
+            </table>
+        </div>
     </body>
 </html>
-
-
