@@ -26,20 +26,46 @@
             </thead>
         </table>
         <div ng-controller="ScorecardController">
-            <h4 style="display:inline-block;">{{batsmanOne}}</h4>
-            <div style="display:inline-block;font:bold;padding-left:172px;">{{runs}}</div>
+            <div style="display:inline-block;font-weight:bold;color:#ea3232;">{{batsmanOne}}</div>
+            <div style="display:inline-block;font-weight:bold;padding-left:177px;">{{runs}}</div>
             <div style="display:inline-block;font:bold;padding-left:70px;">{{totalBls}}</div>
             <div style="display:inline-block;font:bold;padding-left:70px;">{{fours}}</div>
             <div style="display:inline-block;font:bold;padding-left:70px;">{{sixers}}</div>
             <div style="display:inline-block;font:bold;padding-left:70px;">{{strikeRate()}}</div>
             <br />
-            <h4 style="display:inline-block;">{{batsmanTwo}}</h4>
-            <div style="display:inline-block;font:bold;padding-left:147px;">{{runs}}</div>
+            <div style="display:inline-block;color:#07569e;font-weight:bold">{{batsmanTwo}}</div>
+            <div style="display:inline-block;font-weight:bold;padding-left:148px;">{{runs}}</div>
             <div style="display:inline-block;font:bold;padding-left:70px;">{{totalBls}}</div>
             <div style="display:inline-block;font:bold;padding-left:70px;">{{fours}}</div>
             <div style="display:inline-block;font:bold;padding-left:70px;">{{sixers}}</div>
             <div style="display:inline-block;font:bold;padding-left:70px;">{{strikeRate()}}</div>
-            <br /><br /><br /><br />
+            <br /><br />
+            <table class="bowlingHeaderTableRow">
+                <thead>
+                    <tr>
+                        <th style="width:200px;">Bowlers</th>
+                        <th>O</th>
+                        <th>M</th>
+                        <th>R</th>
+                        <th>W</th>
+                        <th>Econ</th>
+                    </tr>
+                </thead>
+            </table>
+            <div style="display:inline-block;font-weight:bold;color:#ea3232;">{{bowlerOne}}</div>
+            <div style="display:inline-block;font-weight:bold;padding-left:150px;">{{overs}}</div>
+            <div style="display:inline-block;font:bold;padding-left:70px;">{{maidens}}</div>
+            <div style="display:inline-block;font:bold;padding-left:70px;">{{runs}}</div>
+            <div style="display:inline-block;font:bold;padding-left:70px;">{{wickets}}</div>
+            <div style="display:inline-block;font:bold;padding-left:70px;">{{economyRate()}}</div>
+            <br />
+            <div style="display:inline-block;font-weight:bold;color:#07569e;">{{bowlerTwo}}</div>
+            <div style="display:inline-block;font-weight:bold;padding-left:161px;">{{overs}}</div>
+            <div style="display:inline-block;font:bold;padding-left:70px;">{{maidens}}</div>
+            <div style="display:inline-block;font:bold;padding-left:70px;">{{runs}}</div>
+            <div style="display:inline-block;font:bold;padding-left:70px;">{{wickets}}</div>
+            <div style="display:inline-block;font:bold;padding-left:70px;">{{economyRate()}}</div>
+            <br /><br /><br />
             <table class="scoringTable">
                 <tr ng-repeat="item in ScoresTable">
                     <td ng-click="handleScorecardClick(item.zero)">{{ item.zero }}</td>

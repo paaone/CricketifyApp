@@ -12,3 +12,14 @@
     background-color: lightgray;
     width:80px;
 }
+
+.bowlingHeaderTableRow th{    
+    font-size: 16px;
+    background-color: lightgray;
+    width:80px;
+}
+
+.scorecardStyling {
+    display:inline-block;
+    font:bold;
+}
