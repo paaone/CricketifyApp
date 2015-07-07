@@ -1,84 +1,105 @@
-﻿
-@{
-    ViewBag.Title = "Index";
+﻿@{
+    ViewBag.Title = "Scorecard";
 }
 
 <html>
-    <head>
-        <script src="~/Scripts/angular.min.js"></script>        
-        <link rel="stylesheet" type="text/css" href="~/Content/CricketifyCustom.css" />
-        <script src="~/Scripts/CricketifyApp/Scorecard.js"></script>
-    </head>
-    <body ng-app="myApp">
-        <h2>Welcome {{1+1}} Cricketify App</h2>
-        <h1>Scoring</h1>
-        <label style="background-color:darkorange;color:white;">Projected Score: 200 Patnership: 50</label>
-        <table class="battingHeaderTableRow">
-            <thead>
-                <tr>
-                    <th style="width:200px;">Batsman</th>
-                    <th>R</th>
-                    <th>B</th>
-                    <th>4s</th>
-                    <th>6s</th>
-                    <th>SR</th>
-                </tr>
-            </thead>
-        </table>
-        <div ng-controller="ScorecardController">
-            <div style="display:inline-block;font-weight:bold;color:#ea3232;">{{batsmanOne}}</div>
-            <div style="display:inline-block;font-weight:bold;padding-left:177px;">{{runs}}</div>
-            <div style="display:inline-block;font:bold;padding-left:70px;">{{totalBls}}</div>
-            <div style="display:inline-block;font:bold;padding-left:70px;">{{fours}}</div>
-            <div style="display:inline-block;font:bold;padding-left:70px;">{{sixers}}</div>
-            <div style="display:inline-block;font:bold;padding-left:70px;">{{strikeRate()}}</div>
-            <br />
-            <div style="display:inline-block;color:#07569e;font-weight:bold">{{batsmanTwo}}</div>
-            <div style="display:inline-block;font-weight:bold;padding-left:148px;">{{runs}}</div>
-            <div style="display:inline-block;font:bold;padding-left:70px;">{{totalBls}}</div>
-            <div style="display:inline-block;font:bold;padding-left:70px;">{{fours}}</div>
-            <div style="display:inline-block;font:bold;padding-left:70px;">{{sixers}}</div>
-            <div style="display:inline-block;font:bold;padding-left:70px;">{{strikeRate()}}</div>
-            <br /><br />
-            <table class="bowlingHeaderTableRow">
-                <thead>
-                    <tr>
-                        <th style="width:200px;">Bowlers</th>
-                        <th>O</th>
-                        <th>M</th>
-                        <th>R</th>
-                        <th>W</th>
-                        <th>Econ</th>
-                    </tr>
-                </thead>
-            </table>
-            <div style="display:inline-block;font-weight:bold;color:#ea3232;">{{bowlerOne}}</div>
-            <div style="display:inline-block;font-weight:bold;padding-left:150px;">{{overs}}</div>
-            <div style="display:inline-block;font:bold;padding-left:70px;">{{maidens}}</div>
-            <div style="display:inline-block;font:bold;padding-left:70px;">{{runs}}</div>
-            <div style="display:inline-block;font:bold;padding-left:70px;">{{wickets}}</div>
-            <div style="display:inline-block;font:bold;padding-left:70px;">{{economyRate()}}</div>
-            <br />
-            <div style="display:inline-block;font-weight:bold;color:#07569e;">{{bowlerTwo}}</div>
-            <div style="display:inline-block;font-weight:bold;padding-left:161px;">{{overs}}</div>
-            <div style="display:inline-block;font:bold;padding-left:70px;">{{maidens}}</div>
-            <div style="display:inline-block;font:bold;padding-left:70px;">{{runs}}</div>
-            <div style="display:inline-block;font:bold;padding-left:70px;">{{wickets}}</div>
-            <div style="display:inline-block;font:bold;padding-left:70px;">{{economyRate()}}</div>
-            <br /><br /><br />
-            <table class="scoringTable">
-                <tr ng-repeat="item in ScoresTable">
-                    <td ng-click="handleScorecardClick(item.zero)">{{ item.zero }}</td>
-                    <td ng-click="handleScorecardClick(item.one)">{{ item.one }}</td>
-                    <td ng-click="handleScorecardClick(item.two)">{{ item.two }}</td>
-                    <td ng-click="handleScorecardClick(item.three)">{{ item.three }}</td>
-                    <td ng-click="handleScorecardClick(item.four)">{{ item.four }}</td>
-                    <td ng-click="handleScorecardClick(item.five)">{{ item.five }}</td>
-                    <td ng-click="handleScorecardClick(item.six)">{{ item.six }}</td>
-                    <td ng-click="handleScorecardClick(item.wicket)">{{ item.wicket }}</td>
-                    <td ng-click="handleScorecardClick(item.extra)">{{ item.extra }}</td>
-                </tr>
-            </table>
+<head>
+    <script src="~/Scripts/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/Content/CricketifyCustom.css" />
+    <script src="~/Scripts/CricketifyApp/Scorecard.js"></script>
+</head>
+<body ng-app="myApp">
+
+    <div class="container">
+        <div class="row">
+            <h2>Welcome {{1+1}} Cricketify App</h2>
         </div>
-    </body>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    <h3>Score card of Spades vs Australia</h3>
+                </div>
+                <div class="row">
+                    <div style="background-color:lightblue;color:white;">Projected Score: 200 Patnership: 50</div>
+                </div>
+                <div class="row"> <br /></div>
+                <div class="row">
+                    <div class="score-table-header">
+                        <div class="col-xs-5">Batsman</div>
+                        <div class="col-xs-1">R</div>
+                        <div class="col-xs-1">B</div>
+                        <div class="col-xs-1">4s</div>
+                        <div class="col-xs-1">6s</div>
+                        <div class="col-xs-1">S/R</div>
+                    </div>
+                </div>
+                <div ng-controller="ScorecardController">
+                    <div class="row">
+                        <div class="col-xs-5"><strong>{{batsmanOne}}</strong></div>
+                        <div class="col-xs-1">{{runs}}</div>
+                        <div class="col-xs-1">{{totalBls}}</div>
+                        <div class="col-xs-1">{{fours}}</div>
+                        <div class="col-xs-1">{{sixers}}</div>
+                        <div class="col-xs-1">{{strikeRate()}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-5"><strong>{{batsmanTwo}}</strong></div>
+                        <div class="col-xs-1">{{runs}}</div>
+                        <div class="col-xs-1">{{totalBls}}</div>
+                        <div class="col-xs-1">{{fours}}</div>
+                        <div class="col-xs-1">{{sixers}}</div>
+                        <div class="col-xs-1">{{strikeRate()}}</div>
+                    </div>
+
+                    <div class="row"> <br /></div>
+
+                    <div class="row">
+                        <div class="score-table-header">
+                            <div class="col-xs-5">Bowlers</div>
+                            <div class="col-xs-1">O</div>
+                            <div class="col-xs-1">M</div>
+                            <div class="col-xs-1">R</div>
+                            <div class="col-xs-1">W</div>
+                            <div class="col-xs-1">Econ</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-5">{{bowlerOne}}</div>
+                        <div class="col-xs-1">{{overs}}</div>
+                        <div class="col-xs-1">{{maidens}}</div>
+                        <div class="col-xs-1">{{runs}}</div>
+                        <div class="col-xs-1">{{wickets}}</div>
+                        <div class="col-xs-1">{{economyRate()}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-5">{{bowlerTwo}}</div>
+                        <div class="col-xs-1">{{overs}}</div>
+                        <div class="col-xs-1">{{maidens}}</div>
+                        <div class="col-xs-1">{{runs}}</div>
+                        <div class="col-xs-1">{{wickets}}</div>
+                        <div class="col-xs-1">{{economyRate()}}</div>
+                    </div>
+                    <br /> <br />
+
+                    <div class="row">
+                        <div ng-repeat="item in ScoresTable">
+                            <div class="col-xs-1 score-bubble" ng-click="handleScorecardClick(item.zero)">   {{ item.zero }}     </div>
+                            <div class="col-xs-1 score-bubble" ng-click="handleScorecardClick(item.one)">    {{ item.one }}      </div>
+                            <div class="col-xs-1 score-bubble" ng-click="handleScorecardClick(item.two)">    {{ item.two }}      </div>
+                            <div class="col-xs-1 score-bubble" ng-click="handleScorecardClick(item.three)">  {{ item.three }}    </div>
+                            <div class="col-xs-1 score-bubble" ng-click="handleScorecardClick(item.four)">   {{ item.four }}     </div>
+                            <div class="col-xs-1 score-bubble" ng-click="handleScorecardClick(item.five)">   {{ item.five }}     </div>
+                            <div class="col-xs-1 score-bubble" ng-click="handleScorecardClick(item.six)">    {{ item.six }}      </div>
+                            <div class="col-xs-2 score-bubble" ng-click="handleScorecardClick(item.wicket)"> {{ item.wicket }}   </div>
+                            <div class="col-xs-2 score-bubble" ng-click="handleScorecardClick(item.extra)">  {{ item.extra }}    </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-md-4"><br /></div>
+        </div>
+    </div>
+</body>
 </html>
