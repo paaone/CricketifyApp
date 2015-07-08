@@ -52,6 +52,13 @@ function updateBatsmanStats(batsman, action) {
     batsman.SR = strikeRate(batsman.Runs, batsman.ballsPlayed);
 }
 
+function fallOfWicket(batsman, nextBatsman){
+    batsman.status = "OUT";
+    batsman.ballsPlayed++;
+    nextBatsman.status = "on-strike";
+}
+
+
 function rotateStrike(batsmanOnStrike, batsmanNonStrike, action){
     if (action == 1 || action == 3 || action == 5) {
         batsmanOnStrike.status = "non-strike";
@@ -63,7 +70,6 @@ function updateStats(action, balls) {
 
     if (isNaN(action)) { // It is either a wicket or an extra
         if (action = "W") {
-
             wickets++;
         }
     }
@@ -148,16 +154,6 @@ app.controller('ScorecardController', function ($scope) {
             totalBalls++;
         }
 
-        updateStats(id, totalBalls);
-        $scope.runs = totalRuns;
-        $scope.overs = displayOvers(totalBalls);
-        $scope.economyRate = economyRate($scope.runs, totalBalls);
-        $scope.strikeRate = strikeRate($scope.runs, totalBalls)
-        $scope.maidens = maidens;
-        $scope.wickets = wickets;
-        $scope.sixers = sixes;
-        $scope.fours = fours;
-
         var batsmanOnStrike = $scope.battingTeam[0].Players.filter(function (obj) {
             return obj.status == "on-strike";
         })
@@ -165,6 +161,25 @@ app.controller('ScorecardController', function ($scope) {
         var batsmanNonStrike = $scope.battingTeam[0].Players.filter(function (obj) {
             return obj.status == "non-strike";
         })
+
+        if (id == "W") {
+            var nextBatsman = $scope.battingTeam[0].Players.filter(function (obj) {
+                return obj.status == "DNB";
+            })
+            fallOfWicket(batsmanOnStrike[0], nextBatsman[0]);
+        }
+
+        updateStats(id, totalBalls);
+        $scope.runs = totalRuns;
+        $scope.overs = displayOvers(totalBalls);
+        $scope.totalBls = totalBalls;
+        $scope.economyRate = economyRate($scope.runs, totalBalls);
+        $scope.strikeRate = strikeRate($scope.runs, totalBalls)
+        $scope.maidens = maidens;
+        $scope.wickets = wickets;
+        $scope.sixers = sixes;
+        $scope.fours = fours;
+
 
         updateBatsmanStats(batsmanOnStrike[0], id);
         rotateStrike(batsmanOnStrike[0], batsmanNonStrike[0], id);
