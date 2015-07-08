@@ -20,3 +20,11 @@
     padding-top:5px;
     padding-bottom:5px;
 }
+.status-on-strike{
+    color:red;
+    font-weight:bold;
+}
+
+.status-DNB, .status-OUT {
+    display:none;
+}

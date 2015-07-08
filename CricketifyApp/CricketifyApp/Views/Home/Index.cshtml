@@ -11,42 +11,43 @@
 <body ng-app="myApp">
 
     <div class="container">
-        <div class="row">
-            <h2>Welcome {{1+1}} Cricketify App</h2>
-        </div>
-        <div class="row">
-            <div class="col-md-8">
-                <div class="row">
-                    <h3>Scorecard of Spades vs Australia</h3>
-                </div>
-                <div class="row">
-                    <div style="background-color:lightblue;color:white;">Projected Score: 200 Patnership: 50</div>
-                </div>
-                <div class="row"> <br /></div>
-                <div class="row">
-                    <div class="score-table-header">
-                        <div class="col-xs-5">Batsman</div>
-                        <div class="col-xs-1">R</div>
-                        <div class="col-xs-1">B</div>
-                        <div class="col-xs-1">4s</div>
-                        <div class="col-xs-1">6s</div>
-                        <div class="col-xs-1">S/R</div>
+        <div ng-controller="ScorecardController">
+            <div class="row">
+                <h2>Welcome {{1+1}} Cricketify App</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="row">
+                        <h3>Scorecard of Spades vs Australia</h3>
                     </div>
-                </div>
-                <div ng-controller="ScorecardController">
-                    <div ng-repeat="batsman in batsmen">
-                        <div class="row">
-                            <div class="col-xs-5"><strong>{{batsman.Name}}</strong></div>
-                            <div class="col-xs-1">{{batsman.Runs}}</div>
-                            <div class="col-xs-1">{{batsman.ballsPlayed}}</div>
-                            <div class="col-xs-1">{{batsman.fours}}</div>
-                            <div class="col-xs-1">{{batsman.sixes}}</div>
-                            <div class="col-xs-1">{{batsman.SR}}</div>
+                    <div class="row">
+                        <div style="background-color:lightblue;color:white;">Projected Score: 200 Patnership: 50</div>
+                    </div>
+                    <div class="row"> <br /></div>
+                    <div class="row">
+                        <div class="score-table-header">
+                            <div class="col-xs-5">Batsman</div>
+                            <div class="col-xs-1">R</div>
+                            <div class="col-xs-1">B</div>
+                            <div class="col-xs-1">4s</div>
+                            <div class="col-xs-1">6s</div>
+                            <div class="col-xs-1">S/R</div>
                         </div>
                     </div>
+ 
+                        <div ng-repeat="batsman in battingTeam[0].Players">
+                            <div class="row status-{{batsman.status}}">
+                                <div class="col-xs-5">{{batsman.Name}}</div>
+                                <div class="col-xs-1">{{batsman.Runs}}</div>
+                                <div class="col-xs-1">{{batsman.ballsPlayed}}</div>
+                                <div class="col-xs-1">{{batsman.fours}}</div>
+                                <div class="col-xs-1">{{batsman.sixes}}</div>
+                                <div class="col-xs-1">{{batsman.SR}}</div>
+                            </div>
+                        </div>
 
                     <div class="row">
-                        <div class="col-xs-5"><strong>{{batsmanTwo}}</strong></div>
+                        <div class="col-xs-5"><strong>TOTAL SCORE:</strong></div>
                         <div class="col-xs-1">{{runs}}</div>
                         <div class="col-xs-1">{{totalBls}}</div>
                         <div class="col-xs-1">{{fours}}</div>
