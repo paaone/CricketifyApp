@@ -14,7 +14,7 @@ function displayOvers(balls) {
         overs = Math.floor(totalBalls / 6);
         balls = (totalBalls % 6);
     }
-    if(balls == 0) {
+    if (balls == 0) {
         endOfOver();
     }
     return overs + "." + balls;
@@ -33,7 +33,7 @@ function updateStats(action, balls) {
 
     if (isNaN(action)) { // It is either a wicket or an extra
         if (action = "W") {
-           
+
             wickets++;
         }
     }
@@ -45,7 +45,7 @@ function updateStats(action, balls) {
             fours++;
         }
         if (action == 6) {
-            sixers++;
+            sixes++;
         }
 
         totalRuns = totalRuns + action;
@@ -101,7 +101,7 @@ app.controller('ScorecardController', function ($scope) {
     $scope.wickets = 0;
     $scope.economyRate = 0;
     $scope.strikeRate = 0;
-    
+
     $scope.handleScorecardClick = function (id) {
         if (id != "Extras") {
             totalBalls++;
@@ -114,7 +114,7 @@ app.controller('ScorecardController', function ($scope) {
         $scope.strikeRate = strikeRate($scope.runs, totalBalls)
         $scope.maidens = maidens;
         $scope.wickets = wickets;
-        $scope.sixes = sixes;
+        $scope.sixers = sixes;
         $scope.fours = fours;
 
     }
