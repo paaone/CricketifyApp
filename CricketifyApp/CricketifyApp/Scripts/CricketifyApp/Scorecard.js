@@ -1,9 +1,91 @@
-﻿var consecutiveDotBallsCount = 0;
+﻿var oversCount = 0;
 var oversDecimalCount = 0.0;
-var oversCount = 0;
+
+var totalBalls = 0;
+var totalRuns = 0;
+var DotBallsCount = 0;
+var maidens = 0;
+var fours = 0;
+var sixes = 0;
+var wickets = 0;
+
+function displayOvers(balls) {
+    if (balls > 0) {
+        overs = Math.floor(totalBalls / 6);
+        balls = (totalBalls % 6);
+    }
+    if(balls == 0) {
+        endOfOver();
+    }
+    return overs + "." + balls;
+}
+
+function endOfOver() {
+    if (DotBallsCount == 6) {
+        maidens++;
+    }
+    DotBallsCount = 0;
+
+    // switch bowlers
+}
+
+function updateStats(action, balls) {
+
+    if (isNaN(action)) { // It is either a wicket or an extra
+        if (action = "W") {
+           
+            wickets++;
+        }
+    }
+    else {
+        if (action == 0) {
+            DotBallsCount++;
+        }
+        if (action == 4) {
+            fours++;
+        }
+        if (action == 6) {
+            sixers++;
+        }
+
+        totalRuns = totalRuns + action;
+    }
+}
+
+
+function strikeRate(runs, balls) {
+    return balls == 0 ? 0 : (runs / balls * 100).toFixed(2);
+}
+
+function economyRate(runs, balls) {
+    return balls = 0 ? 0 : (runs / balls * 6).toFixed(2);
+}
+
+
 var app = angular.module('myApp', []);
 app.controller('ScorecardController', function ($scope) {
-    $scope.ScoresTable = [{ zero: 0, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, wicket: "Wicket", extra: "Extras" }];
+    $scope.actionPerBall = [{ zero: 0, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, wicket: "W", extra: "Extras" }];
+
+    $scope.batsmen =
+        [{
+            Name: "Sai",
+            Runs: 0,
+            ballsPlayed: 0,
+            fours: 0,
+            sixes: 0,
+            SR: 0.0,
+            onStrike: "true"
+        },
+        {
+            Name: "Pavan",
+            Runs: 0,
+            ballsPlayed: 0,
+            fours: 0,
+            sixes: 0,
+            SR: 0,
+            onStrike: "false"
+        }];
+
 
     $scope.batsmanOne = "Sai";
     $scope.batsmanTwo = "Paaone";
@@ -17,57 +99,24 @@ app.controller('ScorecardController', function ($scope) {
     $scope.maidens = 0;
     $scope.bowlingRuns = 0;
     $scope.wickets = 0;
-    $scope.economyRate = function () {
-        if ($scope.overs == 0) {
-            return 0;
+    $scope.economyRate = 0;
+    $scope.strikeRate = 0;
+    
+    $scope.handleScorecardClick = function (id) {
+        if (id != "Extras") {
+            totalBalls++;
         }
-        else {
-            return ($scope.bowlingRuns / $scope.overs).toFixed(2);
-        }
+
+        updateStats(id, totalBalls);
+        $scope.runs = totalRuns;
+        $scope.overs = displayOvers(totalBalls);
+        $scope.economyRate = economyRate($scope.runs, totalBalls);
+        $scope.strikeRate = strikeRate($scope.runs, totalBalls)
+        $scope.maidens = maidens;
+        $scope.wickets = wickets;
+        $scope.sixes = sixes;
+        $scope.fours = fours;
+
     }
-    $scope.strikeRate = function () {
-        if ($scope.totalBls == 0) {
-            return 0;
-        }
-        else {
-            return (($scope.runs / $scope.totalBls)*100).toFixed(2);
-        }        
-    }
-    $scope.handleScorecardClick = function (id) {        
-        if (id == 0 || id == 1 || id == 2 || id == 3 || id == 4 || id == 5 || id == 6) {
-            oversDecimalCount++;
-            if (oversDecimalCount == 6) {
-                oversCount++;
-                $scope.overs = oversCount;
-                oversDecimalCount = 0.0;
-            }
-            else {
-                $scope.overs = oversCount + "." + oversDecimalCount;
-            }
-            $scope.bowlingRuns += id;
-            $scope.totalBls++;
-            $scope.runs += id;
-            if (id == 4) {
-                consecutiveDotBallsCount = 0;
-                $scope.fours++;
-            }
-            else if (id == 6) {
-                consecutiveDotBallsCount = 0;
-                $scope.sixers++;
-            }
-            else if (id == 0) {
-                consecutiveDotBallsCount++;
-                if (consecutiveDotBallsCount == 6) {
-                    $scope.maidens++;
-                    consecutiveDotBallsCount = 0;
-                }
-            }
-            else if (id == 1 || id == 2 || id == 3 || id == 5) {
-                consecutiveDotBallsCount = 0;
-            }
-        }
-        else if (id == "Wicket") {
-            $scope.wickets++;
-        }
-    }
+
 });
