@@ -10,7 +10,10 @@
             fours: 0,
             sixes: 0,
             SR: 0.0,
-            status: "on-strike"
+            status: "on-strike",
+            modeOfDismissal: "",
+            bowledby: "",
+            catchby: ""
         },
         {
             Name: "Pavan Samprati",
@@ -19,7 +22,10 @@
             fours: 0,
             sixes: 0,
             SR: 0.0,
-            status: "non-strike"
+            status: "non-strike",
+            modeOfDismissal: "",
+            bowledby: "",
+            catchby: ""
         },
             {
                 Name: "Sandeep N",
@@ -28,7 +34,10 @@
                 fours: 0,
                 sixes: 0,
                 SR: 0.0,
-                status: "DNB"
+                status: "DNB",
+                modeOfDismissal: "",
+                bowledby: "",
+                catchby: ""
             }
         ]
     }];

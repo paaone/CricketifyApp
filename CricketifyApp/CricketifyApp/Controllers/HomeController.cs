@@ -13,5 +13,17 @@ namespace CricketifyApp.Controllers
         {
             return View();
         }
+
+        public ActionResult ScorecardSummary()
+        {
+            return View();
+        }
+
+        public ActionResult ScorecardDetailed()
+        {
+            return View();
+        }
+
+
     }
 }

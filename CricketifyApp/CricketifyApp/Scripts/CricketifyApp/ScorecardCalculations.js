@@ -21,10 +21,10 @@ function endOfOver() {
 
 function updateBatsmanStats(batsman, action) {
     if (isNaN(action)) { // It is either a wicket or an extra
-        if (action = "W") {
-            batsman.status = "OUT";
-            batsman.ballsPlayed++;
-        }
+        //if (action = "W") {
+        //    batsman.status = "OUT";
+        //    batsman.ballsPlayed++;
+        //}
     }
     else {
         if (action == 4) {
