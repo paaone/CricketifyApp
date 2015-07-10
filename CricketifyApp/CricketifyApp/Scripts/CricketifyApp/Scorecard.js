@@ -51,7 +51,20 @@ app.controller('ScorecardController', function ($scope) {
             fallOfWicket(batsmanOnStrike[0], nextBatsman[0]);
         }
 
+        updateBatsmanStats(batsmanOnStrike[0], id);
+        rotateStrike(batsmanOnStrike[0], batsmanNonStrike[0], id);
         updateStats(id, totalBalls);
+
+        if (totalBalls % 6 == 0) {
+            batsmanOnStrike = $scope.battingTeam[0].Players.filter(function (obj) {
+                return obj.status == "on-strike";
+            })
+            batsmanNonStrike = $scope.battingTeam[0].Players.filter(function (obj) {
+                return obj.status == "non-strike";
+            })
+            endOfOver(batsmanOnStrike[0], batsmanNonStrike[0]);
+        }
+
         $scope.runs = totalRuns;
         $scope.overs = displayOvers(totalBalls);
         $scope.totalBls = totalBalls;
@@ -61,11 +74,6 @@ app.controller('ScorecardController', function ($scope) {
         $scope.wickets = wickets;
         $scope.sixers = sixes;
         $scope.fours = fours;
-
-
-        updateBatsmanStats(batsmanOnStrike[0], id);
-        rotateStrike(batsmanOnStrike[0], batsmanNonStrike[0], id);
-
 
     }
 

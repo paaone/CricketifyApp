@@ -3,25 +3,22 @@
         overs = Math.floor(totalBalls / 6);
         balls = (totalBalls % 6);
     }
-    if (balls == 0) {
-        endOfOver();
-    }
     return overs + "." + balls;
 }
 
-function endOfOver() {
+function endOfOver(batsmanOnStrike, batsmanNonStrike) {
     if (DotBallsCount == 6) {
         maidens++;
     }
     DotBallsCount = 0;
 
+    rotateStrike(batsmanOnStrike, batsmanNonStrike, "over");
     // switch bowlers
-    // rotate strike
 }
 
 function updateBatsmanStats(batsman, action) {
     if (isNaN(action)) { // It is either a wicket or an extra
-        //if (action = "W") {
+        //if (action == "W") {
         //    batsman.status = "OUT";
         //    batsman.ballsPlayed++;
         //}
@@ -49,7 +46,7 @@ function fallOfWicket(batsman, nextBatsman) {
 
 
 function rotateStrike(batsmanOnStrike, batsmanNonStrike, action) {
-    if (action == 1 || action == 3 || action == 5) {
+    if (action == 1 || action == 3 || action == 5 || action == "over") {
         batsmanOnStrike.status = "non-strike";
         batsmanNonStrike.status = "on-strike";
     }
@@ -58,7 +55,7 @@ function rotateStrike(batsmanOnStrike, batsmanNonStrike, action) {
 function updateStats(action, balls) {
 
     if (isNaN(action)) { // It is either a wicket or an extra
-        if (action = "W") {
+        if (action == "W") {
             wickets++;
         }
     }
