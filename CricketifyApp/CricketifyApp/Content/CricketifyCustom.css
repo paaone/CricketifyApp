@@ -23,9 +23,13 @@
     border-color:white;
 }
 
-.status-on-strike{
+.status-on-strike, .detailed-status-on-strike{
     color:red;
     font-weight:bold;
+}
+
+.detailed-status-non-strike{
+    color:blue;
 }
 
 .status-DNB, .status-OUT {

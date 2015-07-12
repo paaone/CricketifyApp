@@ -13,7 +13,7 @@
             status: "on-strike",
             modeOfDismissal: "",
             bowledby: "",
-            catchby: ""
+            caughtby: ""
         },
         {
             Name: "Pavan Samprati",
@@ -25,21 +25,116 @@
             status: "non-strike",
             modeOfDismissal: "",
             bowledby: "",
-            catchby: ""
+            caughtby: ""
         },
-            {
-                Name: "Sandeep N",
-                Runs: 0,
-                ballsPlayed: 0,
-                fours: 0,
-                sixes: 0,
-                SR: 0.0,
-                status: "DNB",
-                modeOfDismissal: "",
-                bowledby: "",
-                catchby: ""
-            }
-        ]
+        {
+            Name: "Vijay Raghavan",
+            Runs: 0,
+            ballsPlayed: 0,
+            fours: 0,
+            sixes: 0,
+            SR: 0.0,
+            status: "DNB",
+            modeOfDismissal: "",
+            bowledby: "",
+            caughtby: ""
+        },
+        {
+            Name: "Partheeban K",
+            Runs: 0,
+            ballsPlayed: 0,
+            fours: 0,
+            sixes: 0,
+            SR: 0.0,
+            status: "DNB",
+            modeOfDismissal: "",
+            bowledby: "",
+            caughtby: ""
+        },
+        {
+            Name: "Deepak Dayanad",
+            Runs: 0,
+            ballsPlayed: 0,
+            fours: 0,
+            sixes: 0,
+            SR: 0.0,
+            status: "DNB",
+            modeOfDismissal: "",
+            bowledby: "",
+            caughtby: ""
+        },
+        {
+            Name: "Prasad GS",
+            Runs: 0,
+            ballsPlayed: 0,
+            fours: 0,
+            sixes: 0,
+            SR: 0.0,
+            status: "DNB",
+            modeOfDismissal: "",
+            bowledby: "",
+            caughtby: ""
+        },
+        {
+            Name: "Ramanan Shekar",
+            Runs: 0,
+            ballsPlayed: 0,
+            fours: 0,
+            sixes: 0,
+            SR: 0.0,
+            status: "DNB",
+            modeOfDismissal: "",
+            bowledby: "",
+            caughtby: ""
+        },
+        {
+            Name: "Ajay Raghav",
+            Runs: 0,
+            ballsPlayed: 0,
+            fours: 0,
+            sixes: 0,
+            SR: 0.0,
+            status: "DNB",
+            modeOfDismissal: "",
+            bowledby: "",
+            caughtby: ""
+        },
+        {
+            Name: "Sandeep N",
+            Runs: 0,
+            ballsPlayed: 0,
+            fours: 0,
+            sixes: 0,
+            SR: 0.0,
+            status: "DNB",
+            modeOfDismissal: "",
+            bowledby: "",
+            caughtby: ""
+        },
+        {
+            Name: "Sai Prasad B",
+            Runs: 0,
+            ballsPlayed: 0,
+            fours: 0,
+            sixes: 0,
+            SR: 0.0,
+            status: "DNB",
+            modeOfDismissal: "",
+            bowledby: "",
+            caughtby: ""
+        },
+        {
+            Name: "Dipak Patel",
+            Runs: 0,
+            ballsPlayed: 0,
+            fours: 0,
+            sixes: 0,
+            SR: 0.0,
+            status: "DNB",
+            modeOfDismissal: "",
+            bowledby: "",
+            caughtby: ""
+        }]
     }];
 
     return battingTeam;

@@ -1,7 +1,112 @@
-﻿
-@{
-    ViewBag.Title = "ScorecardSummary";
+﻿@{
+    ViewBag.Title = "Scorecard Summary";
 }
 
-<h2>Scorecard Summary</h2>
+<html>
+<head>
+    <script src="~/Scripts/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/Content/CricketifyCustom.css" />
+    <script src="~/Scripts/CricketifyApp/ScorecardCalculations.js"></script>
+    <script src="~/Scripts/CricketifyApp/ScoreCardViewModel.js"></script>
+    <script src="~/Scripts/CricketifyApp/Scorecard.js"></script>
+</head>
+<body ng-app="myApp">
 
+    <div class="container">
+        <div ng-controller="ScorecardController">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="row">
+                        <h4>Scorecard of {{battingTeam[0].TeamName}} vs Australia</h4>
+                    </div>
+                    <div class="row">
+                        <div style="background-color:lightblue;color:white;">Projected Score: 200 Patnership: 50</div>
+                    </div>
+                    <div class="row"> <br /></div>
+                    <div class="row">
+                        <div class="score-table-header">
+                            <div class="col-xs-6">Batsman</div>
+                            <div class="col-xs-1">R</div>
+                            <div class="col-xs-1">B</div>
+                            <div class="col-xs-1">4s</div>
+                            <div class="col-xs-1">6s</div>
+                            <div class="col-xs-1">S/R</div>
+                        </div>
+                    </div>
+
+                    <div ng-repeat="batsman in battingTeam[0].Players">
+                        <div class="row status-{{batsman.status}}">
+                            <div class="col-xs-6">{{batsman.Name}}</div>
+                            <div class="col-xs-1">{{batsman.Runs}}</div>
+                            <div class="col-xs-1">{{batsman.ballsPlayed}}</div>
+                            <div class="col-xs-1">{{batsman.fours}}</div>
+                            <div class="col-xs-1">{{batsman.sixes}}</div>
+                            <div class="col-xs-1">{{batsman.SR}}</div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6"><strong>TOTAL SCORE:</strong></div>
+                        <div class="col-xs-1">{{runs}}</div>
+                        <div class="col-xs-1">{{totalBls}}</div>
+                        <div class="col-xs-1">{{fours}}</div>
+                        <div class="col-xs-1">{{sixers}}</div>
+                        <div class="col-xs-1">{{strikeRate}}</div>
+                    </div>
+
+                    <div class="row"> <br /></div>
+
+                    <div class="row">
+                        <div class="score-table-header">
+                            <div class="col-xs-6">Bowlers</div>
+                            <div class="col-xs-1">O</div>
+                            <div class="col-xs-1">M</div>
+                            <div class="col-xs-1">R</div>
+                            <div class="col-xs-1">W</div>
+                            <div class="col-xs-1">Econ</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">{{bowlerOne}}</div>
+                        <div class="col-xs-1">{{overs}}</div>
+                        <div class="col-xs-1">{{maidens}}</div>
+                        <div class="col-xs-1">{{runs}}</div>
+                        <div class="col-xs-1">{{wickets}}</div>
+                        <div class="col-xs-1">{{economyRate}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">{{bowlerTwo}}</div>
+                        <div class="col-xs-1">{{overs}}</div>
+                        <div class="col-xs-1">{{maidens}}</div>
+                        <div class="col-xs-1">{{runs}}</div>
+                        <div class="col-xs-1">{{wickets}}</div>
+                        <div class="col-xs-1">{{economyRate}}</div>
+                    </div>
+                    <br /> <br />
+
+                    <div class="row">
+                        <div ng-repeat="action in actionPerBall">
+                            <div class="col-sm-6">
+                                <div class="col-xs-2 score-bubble" ng-click="handleScorecardClick(action.zero)">   {{ action.zero }}     </div>
+                                <div class="col-xs-2 score-bubble" ng-click="handleScorecardClick(action.one)">    {{ action.one }}      </div>
+                                <div class="col-xs-2 score-bubble" ng-click="handleScorecardClick(action.two)">    {{ action.two }}      </div>
+                                <div class="col-xs-2 score-bubble" ng-click="handleScorecardClick(action.three)">  {{ action.three }}    </div>
+                                <div class="col-xs-2 score-bubble" ng-click="handleScorecardClick(action.four)">   {{ action.four }}     </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="col-xs-2 score-bubble" ng-click="handleScorecardClick(action.five)">   {{ action.five }}     </div>
+                                <div class="col-xs-2 score-bubble" ng-click="handleScorecardClick(action.six)">    {{ action.six }}      </div>
+                                <div class="col-xs-4 score-bubble" ng-click="handleScorecardClick(action.wicket)"> {{ action.wicket }}   </div>
+                                <div class="col-xs-4 score-bubble" ng-click="handleScorecardClick(action.extra)">  {{ action.extra }}    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-md-4"><br /></div>
+        </div>
+    </div>
+</body>
+</html>
