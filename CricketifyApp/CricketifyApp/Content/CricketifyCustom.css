@@ -1,37 +1,50 @@
-﻿.score-table-header{
-  vertical-align:bottom;
-  font-weight:bold;
-  font-size:14px;
-  padding-bottom:1.6em;
-  background-color:#f5f5f5;
-  color:#292929;
-  border-bottom: 2px solid #dddddd;
+﻿    [class*="col-"] {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .row {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .container {
+      margin: 5px;
+      padding: 5px;
+    }
+
+.score-table-header {
+    vertical-align: bottom;
+    font-weight: bold;
+    font-size: 14px;
+    padding-bottom: 1.6em;
+    background-color: #f5f5f5;
+    color: #292929;
+    border-bottom: 2px solid #dddddd;
 }
 
-.score-bubble{
-    font-size:16px;
-    font-weight:bold;
-    color:NavajoWhite;
-    background-color:darkred;
-    border-radius:40px;
-    text-align:center;
-    cursor:pointer;
-    padding-top:15px;
-    padding-bottom:15px;
-    border:solid;
-    border-width:1px;
-    border-color:white;
+.score-bubble {
+    font-size: 16px;
+    font-weight: bold;
+    color: NavajoWhite;
+    background-color: darkred;
+    border-radius: 40px;
+    text-align: center;
+    cursor: pointer;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: solid;
+    border-width: 3px;
+    border-color: white;
 }
 
-.status-on-strike, .detailed-status-on-strike{
-    color:red;
-    font-weight:bold;
+.status-on-strike, .detailed-status-on-strike {
+    color: red;
+    font-weight: bold;
 }
 
-.detailed-status-non-strike{
-    color:blue;
+.detailed-status-non-strike {
+    color: blue;
 }
 
 .status-DNB, .status-OUT {
-    display:none;
+    display: none;
 }

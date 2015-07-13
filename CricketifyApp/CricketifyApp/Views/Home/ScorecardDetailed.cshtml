@@ -35,7 +35,7 @@
                     </div>
 
                     <div ng-repeat="batsman in battingTeam[0].Players">
-                        <div class="row detailed-status-{{batsman.status}}" >
+                        <div class="row detailed-status-{{batsman.status}}">
                             <div class="col-xs-6">{{batsman.Name}}</div>
                             <div class="col-xs-1">{{batsman.Runs}}</div>
                             <div class="col-xs-1">{{batsman.ballsPlayed}}</div>
@@ -84,18 +84,20 @@
                     </div>
                     <br /> <br />
 
-                    <div class="row">
-                        <div ng-repeat="action in actionPerBall">
-                            <div class="col-sm-6">
-                                <div class="col-xs-2 score-bubble" ng-click="handleScorecardClick(action.zero)">   {{ action.zero }}     </div>
-                                <div class="col-xs-2 score-bubble" ng-click="handleScorecardClick(action.one)">    {{ action.one }}      </div>
-                                <div class="col-xs-2 score-bubble" ng-click="handleScorecardClick(action.two)">    {{ action.two }}      </div>
-                                <div class="col-xs-2 score-bubble" ng-click="handleScorecardClick(action.three)">  {{ action.three }}    </div>
-                                <div class="col-xs-2 score-bubble" ng-click="handleScorecardClick(action.four)">   {{ action.four }}     </div>
+                    <div ng-repeat="action in actionPerBall">
+                        <div class="row row-no-padding">
+                            <div class="col-sm-4">
+                                <div class="col-xs-4 score-bubble" ng-click="handleScorecardClick(action.zero)">   {{ action.zero }}     </div>
+                                <div class="col-xs-4 score-bubble" ng-click="handleScorecardClick(action.one)">    {{ action.one }}      </div>
+                                <div class="col-xs-4 score-bubble" ng-click="handleScorecardClick(action.two)">    {{ action.two }}      </div>
                             </div>
-                            <div class="col-sm-6">
-                                <div class="col-xs-2 score-bubble" ng-click="handleScorecardClick(action.five)">   {{ action.five }}     </div>
-                                <div class="col-xs-2 score-bubble" ng-click="handleScorecardClick(action.six)">    {{ action.six }}      </div>
+                            <div class="col-sm-4">
+                                <div class="col-xs-4 score-bubble" ng-click="handleScorecardClick(action.three)">  {{ action.three }}    </div>
+                                <div class="col-xs-4 score-bubble" ng-click="handleScorecardClick(action.four)">   {{ action.four }}     </div>
+                                <div class="col-xs-4 score-bubble" ng-click="handleScorecardClick(action.five)">   {{ action.five }}     </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="col-xs-4 score-bubble" ng-click="handleScorecardClick(action.six)">    {{ action.six }}      </div>
                                 <div class="col-xs-4 score-bubble" ng-click="handleScorecardClick(action.wicket)"> {{ action.wicket }}   </div>
                                 <div class="col-xs-4 score-bubble" ng-click="handleScorecardClick(action.extra)">  {{ action.extra }}    </div>
                             </div>
