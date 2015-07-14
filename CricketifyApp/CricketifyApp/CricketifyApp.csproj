@@ -136,8 +136,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Views\Home\ScorecardSummary.cshtml" />
-    <Content Include="Views\Home\ScorecardDetailed.cshtml" />
+    <Content Include="Views\Home\Scorecard.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

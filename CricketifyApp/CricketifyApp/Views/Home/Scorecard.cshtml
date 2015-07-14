@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Detailed Scorecard";
+    ViewBag.Title = "Scorecard";
 }
 
 <html>
@@ -35,7 +35,7 @@
                     </div>
 
                     <div ng-repeat="batsman in battingTeam[0].Players">
-                        <div class="row detailed-status-{{batsman.status}}">
+                        <div class="row status-{{batsman.status}}">
                             <div class="col-xs-6">{{batsman.Name}}</div>
                             <div class="col-xs-1">{{batsman.Runs}}</div>
                             <div class="col-xs-1">{{batsman.ballsPlayed}}</div>
