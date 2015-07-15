@@ -30,6 +30,7 @@ app.controller('ScorecardController', function ($scope) {
     $scope.wickets = 0;
     $scope.economyRate = 0;
     $scope.strikeRate = 0;
+    $scope.runRate = 0;
 
     $scope.handleScorecardClick = function (id) {
         if (id != "Extras") {
@@ -55,7 +56,7 @@ app.controller('ScorecardController', function ($scope) {
         rotateStrike(batsmanOnStrike[0], batsmanNonStrike[0], id);
         updateStats(id, totalBalls);
 
-        if (totalBalls % 6 == 0) {
+        if (id != "Extras" && totalBalls % 6 == 0) {
             batsmanOnStrike = $scope.battingTeam[0].Players.filter(function (obj) {
                 return obj.status == "on-strike";
             })
@@ -68,8 +69,9 @@ app.controller('ScorecardController', function ($scope) {
         $scope.runs = totalRuns;
         $scope.overs = displayOvers(totalBalls);
         $scope.totalBls = totalBalls;
-        $scope.economyRate = economyRate($scope.runs, totalBalls);
-        $scope.strikeRate = strikeRate($scope.runs, totalBalls)
+        $scope.economyRate = economyRate(totalRuns, totalBalls);
+        $scope.runRate = economyRate(totalRuns, totalBalls);
+        $scope.strikeRate = strikeRate(totalRuns, totalBalls)
         $scope.maidens = maidens;
         $scope.wickets = wickets;
         $scope.sixers = sixes;
