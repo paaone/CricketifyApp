@@ -47,6 +47,11 @@
     color:#646F5E;  /* #9CA998;*/ 
 }
 
+.status-current-bowler {
+    color: #435D36;
+    font-weight: bold;
+}
+
 
 .score-snapshot {
     background-color: #d9d9d9;

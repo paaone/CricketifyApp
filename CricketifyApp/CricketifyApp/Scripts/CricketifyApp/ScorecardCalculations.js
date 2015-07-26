@@ -6,14 +6,27 @@
     return overs + "." + balls;
 }
 
-function endOfOver(batsmanOnStrike, batsmanNonStrike) {
+function displayBowlerOvers(totalBls) {
+    if (totalBls > 0) {
+        overs = Math.floor(totalBls / 6);
+        balls = (totalBls % 6);
+    }
+    return overs + "." + balls;
+}
+
+function endOfOver(batsmanOnStrike, batsmanNonStrike, currentBowler, nextBowler) {
     if (DotBallsCount == 6) {
-        maidens++;
+        currentBowler.Maidens++;
     }
     DotBallsCount = 0;
-
     rotateStrike(batsmanOnStrike, batsmanNonStrike, "over");
+    changeBowler(currentBowler, nextBowler);
     // switch bowlers
+}
+
+function changeBowler(currentBowler, nextBowler) {
+    currentBowler.bowlingStatus = "bowler";
+    nextBowler.bowlingStatus = "current-bowler";
 }
 
 function updateBatsmanStats(batsman, action) {
@@ -31,19 +44,35 @@ function updateBatsmanStats(batsman, action) {
             batsman.sixes++;
         }
 
-        batsman.Runs = batsman.Runs + action;
+        batsman.Runs = batsman.Runs + action;        
         batsman.ballsPlayed++;
     }
 
     batsman.SR = strikeRate(batsman.Runs, batsman.ballsPlayed);
 }
 
-function fallOfWicket(batsman, nextBatsman) {
+function updateBowlerStats(bowler, action) {
+    if (isNaN(action)) { // It is either a wicket or an extra
+        //if (action == "W") {
+        //    batsman.status = "OUT";
+        //    batsman.ballsPlayed++;
+        //}
+    }
+    else {
+        bowler.totalRuns = bowler.totalRuns + action;
+        bowler.ballsBowled++;
+        bowler.Overs = displayBowlerOvers(bowler.ballsBowled);
+    }
+
+    bowler.EconomyRate = economyRate(bowler.totalRuns, bowler.ballsBowled);
+}
+
+function fallOfWicket(batsman, nextBatsman, currentBowler) {
     batsman.status = "OUT";
     batsman.ballsPlayed++;
     nextBatsman.status = "on-strike";
+    currentBowler.wickets++;
 }
-
 
 function rotateStrike(batsmanOnStrike, batsmanNonStrike, action) {
     if (action == 1 || action == 3 || action == 5 || action == "over") {

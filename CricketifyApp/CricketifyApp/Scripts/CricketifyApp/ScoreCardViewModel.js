@@ -139,3 +139,32 @@
 
     return battingTeam;
 }
+
+function getBowlers(teamId) {
+
+    // eventually this will be a call to the server which will return the bowling options. 
+    bowlingOptions = [{
+        TeamName: "Spades",
+        Players: [{
+            Name: "Sai Prashant",
+            Overs: 0,
+            Maidens: 0,
+            totalRuns: 0,
+            wickets: 0,
+            EconomyRate: 0.0,
+            ballsBowled: 0,
+            bowlingStatus: "current-bowler"
+        },
+        {
+            Name: "Sandeep N",
+            Overs: 0,
+            Maidens: 0,
+            totalRuns: 0,
+            wickets: 0,
+            EconomyRate: 0.0,
+            ballsBowled: 0,
+            bowlingStatus: "bowler"
+        }]
+    }];
+    return bowlingOptions;
+}

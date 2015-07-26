@@ -66,21 +66,15 @@
                             <div class="col-xs-1">Econ</div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xs-6">{{bowlerOne}}</div>
-                        <div class="col-xs-1">{{overs}}</div>
-                        <div class="col-xs-1">{{maidens}}</div>
-                        <div class="col-xs-1">{{runs}}</div>
-                        <div class="col-xs-1">{{wickets}}</div>
-                        <div class="col-xs-1">{{economyRate}}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-6">{{bowlerTwo}}</div>
-                        <div class="col-xs-1">{{overs}}</div>
-                        <div class="col-xs-1">{{maidens}}</div>
-                        <div class="col-xs-1">{{runs}}</div>
-                        <div class="col-xs-1">{{wickets}}</div>
-                        <div class="col-xs-1">{{economyRate}}</div>
+                    <div ng-repeat="bowler in bowlingOptions[0].Players">
+                        <div class="row status-{{bowler.bowlingStatus}}">
+                            <div class="col-xs-6">{{bowler.Name}}</div>
+                            <div class="col-xs-1">{{bowler.Overs}}</div>
+                            <div class="col-xs-1">{{bowler.Maidens}}</div>
+                            <div class="col-xs-1">{{bowler.totalRuns}}</div>
+                            <div class="col-xs-1">{{bowler.wickets}}</div>
+                            <div class="col-xs-1">{{bowler.EconomyRate}}</div>
+                        </div>
                     </div>
                     <br /> <br />
 
