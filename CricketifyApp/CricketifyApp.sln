@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.22823.1
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CricketifyApp", "CricketifyApp\CricketifyApp.csproj", "{574CE800-07EE-4A0F-B2C5-EABC5D55644A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CricketifyApp.Tests", "CricketifyApp.Tests\CricketifyApp.Tests.csproj", "{C17E154C-C1EF-4DF5-9198-458C7B202449}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CricketifyAPI", "CricketifyAPI\CricketifyAPI.csproj", "{E6DB47DC-3846-4795-BB7F-C6311321D664}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CricketifyAPI.Tests", "CricketifyAPI.Tests\CricketifyAPI.Tests.csproj", "{D2269A5F-1827-4A11-83C7-E8CA9C05A96F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{C17E154C-C1EF-4DF5-9198-458C7B202449}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C17E154C-C1EF-4DF5-9198-458C7B202449}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C17E154C-C1EF-4DF5-9198-458C7B202449}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6DB47DC-3846-4795-BB7F-C6311321D664}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6DB47DC-3846-4795-BB7F-C6311321D664}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6DB47DC-3846-4795-BB7F-C6311321D664}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6DB47DC-3846-4795-BB7F-C6311321D664}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2269A5F-1827-4A11-83C7-E8CA9C05A96F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2269A5F-1827-4A11-83C7-E8CA9C05A96F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2269A5F-1827-4A11-83C7-E8CA9C05A96F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2269A5F-1827-4A11-83C7-E8CA9C05A96F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
